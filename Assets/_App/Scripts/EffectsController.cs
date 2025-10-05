@@ -73,7 +73,7 @@ public class EffectsController : MonoBehaviour
         }
         else if (effect == EffectIncreaseClaws)
         {
-            if (ClawsCount < 4)
+            if (ClawsCount < 3)
             {
                 ClawsCount += 1;
                 active.AddedValue = 1;

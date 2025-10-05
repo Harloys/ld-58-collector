@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -6,7 +7,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject Ball;
     public int SpawnCount = 20;
-    public int SpawnCountFinal = 100;
+    public int SpawnCountFinalMult = 5;
 
     public float SpawnRadius = 0.5f;
     
@@ -15,10 +16,22 @@ public class Spawner : MonoBehaviour
         Spawn(SpawnCount);
     }
 
+    [ContextMenu("SpawnFinal debug")]
     public void SpawnFinal()
     {
-        Spawn(SpawnCountFinal);
+
+        StartCoroutine(DelayedSpawn());
     }
+
+    private IEnumerator DelayedSpawn()
+    {
+        for (int i = 0; i < SpawnCountFinalMult; i++)
+        {
+            Spawn(20);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+    
 
     private void Update()
     {

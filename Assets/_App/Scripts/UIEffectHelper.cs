@@ -12,7 +12,6 @@ public class UIEffectHelper : MonoBehaviour
     public GameObject Claws;
     public GameObject Balls;
     public GameObject Finish;
-    public GameObject MessageTop;
 
     public GameObject Tutorial1;
     public GameObject Tutorial2;
@@ -51,8 +50,8 @@ public class UIEffectHelper : MonoBehaviour
     {
         HideAll();
         Finish.SetActive(true);
-        Show();
-        StartCoroutine(DisableFinish());
+        Show(false);
+        //StartCoroutine(DisableFinish());
     }
 
     private IEnumerator DisableFinish()
@@ -95,7 +94,7 @@ public class UIEffectHelper : MonoBehaviour
         currentCoroutine = null;
     }
 
-    public void Show()
+    public void Show(bool autohide = true)
     {
         if (Tutorial1.gameObject.activeSelf || Tutorial2.gameObject.activeSelf)
         {
@@ -109,7 +108,8 @@ public class UIEffectHelper : MonoBehaviour
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
 
-        currentCoroutine = StartCoroutine(FadeAndAutoHide());
+        if(autohide)
+            currentCoroutine = StartCoroutine(FadeAndAutoHide());
     }
 
     private IEnumerator FadeAndAutoHide()
