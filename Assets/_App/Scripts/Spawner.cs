@@ -21,14 +21,37 @@ public class Spawner : MonoBehaviour
             Spawn();
     }
 
-    [ContextMenu("Spawn")]
     public void Spawn()
     {
         for (int i = 0; i < SpawnCount; i++)
         {
-            var pos = Instantiate(Ball, transform.position, quaternion.identity);
-            pos.transform.localPosition += new Vector3(Random.Range(-SpawnRadius, SpawnRadius),
+            var go = Instantiate(Ball, transform.position, quaternion.identity);
+            go.transform.localPosition += new Vector3(Random.Range(-SpawnRadius, SpawnRadius),
                 Random.Range(-SpawnRadius, SpawnRadius), Random.Range(-SpawnRadius, SpawnRadius));
+
+            if (!go.TryGetComponent(out ColorRandomizer colorRandomizer))
+                continue;
+            
+            var h = Random.value;                       
+            var s = Random.Range(0.5f, 0.8f);           
+            var v = Random.Range(0.9f, 1f);             
+            var pastelVibrant = Color.HSVToRGB(h, s, v);
+
+            colorRandomizer.SetColor(pastelVibrant);
+
+            if (!(Random.value <= 0.2f)) 
+                continue;
+            
+            var eh = Random.value;                       
+            var es = Random.Range(0.5f, 1f);            
+            var ev = Random.Range(0.5f, 1f);            
+            var emissionColor = Color.HSVToRGB(eh, es, ev) * 2f;
+
+            colorRandomizer.SetEmission(emissionColor);
+                    
+            var fresnel = Random.Range(0.1f, 5f);
+            colorRandomizer.SetFresnel(fresnel);
+
         }        
     }
 
