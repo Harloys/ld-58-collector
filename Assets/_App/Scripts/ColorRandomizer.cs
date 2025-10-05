@@ -3,8 +3,8 @@ using UnityEngine;
 public class ColorRandomizer : MonoBehaviour
 {
     private static readonly int Color1 = Shader.PropertyToID("_Color");
-    private static readonly int EmColor = Shader.PropertyToID("_EmColor"); // Make sure your shader uses this
-    private static readonly int FresnelPower = Shader.PropertyToID("_FresnelPower"); // Shader property for Fresnel
+    private static readonly int EmColor = Shader.PropertyToID("_EmColor");
+    private static readonly int FresnelPower = Shader.PropertyToID("_FresnelPower");
     private Renderer renderer;
     void Awake()
     {

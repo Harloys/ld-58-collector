@@ -1,4 +1,3 @@
-using System;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,23 +6,29 @@ public class Spawner : MonoBehaviour
 {
     public GameObject Ball;
     public int SpawnCount = 20;
+    public int SpawnCountFinal = 100;
+
     public float SpawnRadius = 0.5f;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Spawn();
+        Spawn(SpawnCount);
+    }
+
+    public void SpawnFinal()
+    {
+        Spawn(SpawnCountFinal);
     }
 
     private void Update()
     {
         if(Application.isEditor && Input.GetKeyDown(KeyCode.P))
-            Spawn();
+            Spawn(SpawnCount);
     }
 
-    public void Spawn()
+    public void Spawn(int count)
     {
-        for (int i = 0; i < SpawnCount; i++)
+        for (int i = 0; i < count; i++)
         {
             var go = Instantiate(Ball, transform.position, quaternion.identity);
             go.transform.localPosition += new Vector3(Random.Range(-SpawnRadius, SpawnRadius),

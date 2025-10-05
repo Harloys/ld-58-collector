@@ -11,8 +11,8 @@ public class RandomForceOnSpace : MonoBehaviour
     public float currentForce;
 
     [Header("Button Animation Settings")]
-    [SerializeField] Transform buttonTransform; // The button to animate
-    [SerializeField] float maxPushDistance = 0.2f; // Max local push down
+    [SerializeField] Transform buttonTransform;
+    [SerializeField] float maxPushDistance = 0.2f;
 
     private List<Rigidbody> insideRigidbodies = new List<Rigidbody>();
     private float spaceHoldTime = 0f;

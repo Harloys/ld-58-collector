@@ -126,13 +126,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 0
-    m_Value: {r: 0.3726415, g: 0.7684763, b: 1, a: 1}
+    m_Value: {r: 0.12124115, g: 0.3301887, b: 0.11992702, a: 1}
   highlights:
     m_OverrideState: 1
     m_Value: {r: 0.96728545, g: 0.3915094, b: 1, a: 1}
   balance:
     m_OverrideState: 1
-    m_Value: 6
+    m_Value: 17
 --- !u!114 &4014557285219808407
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.Vignette
   active: 1
   color:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
     m_OverrideState: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
     m_Value: 0.287
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.422
+    m_Value: 0.2
   rounded:
     m_OverrideState: 0
     m_Value: 0
