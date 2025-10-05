@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BallScaler : MonoBehaviour
@@ -15,6 +16,7 @@ public class BallScaler : MonoBehaviour
     private void Update()
     {
         var scale = (EffectsController.Instance.BallsScaleMult * ScaleInc);
+        scale = math.clamp(scale, 0, 0.4f);
         transform.localScale = baseScale + new Vector3(scale,scale, scale);
     }
 }

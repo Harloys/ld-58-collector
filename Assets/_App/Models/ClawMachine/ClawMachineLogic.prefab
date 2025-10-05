@@ -1486,6 +1486,9 @@ MonoBehaviour:
   Source: {fileID: 648196998794425009}
   Click: {fileID: 8417651484590976559}
   ClickOut: {fileID: 2634332753850728517}
+  Renderer: {fileID: 6320020678796759962}
+  Player: {fileID: 2100000, guid: bdc564dc46bcb1c47a8b1f39fc15dab2, type: 2}
+  AIMat: {fileID: 2100000, guid: d48aef50f1f504943b91d6a822a94e22, type: 2}
   AnimatorClaw: {fileID: 4090065265145798728}
   RectWidth: 0.8
   RectHeight: 0.8
@@ -1500,6 +1503,7 @@ MonoBehaviour:
   CenterPoint: {x: 0.5, y: 0.5}
   carrierRb: {fileID: 2469834355553904961}
   GrabReleaseChance: 0.1
+  AI: 0
   currentState: 0
   PosX: 0.5
   PosZ: 0.5
@@ -1685,5 +1689,10 @@ PrefabInstance:
 --- !u!4 &5187607520957573365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aa3d9d15216f24d448c9b849aab0d66d, type: 3}
+  m_PrefabInstance: {fileID: 4644527276987207454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6320020678796759962 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: aa3d9d15216f24d448c9b849aab0d66d, type: 3}
   m_PrefabInstance: {fileID: 4644527276987207454}
   m_PrefabAsset: {fileID: 0}

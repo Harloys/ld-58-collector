@@ -9,7 +9,7 @@ using Debug = UnityEngine.Debug;
 public class ItchPublisher
 {
     private const string BUTLER_PATH = @"C:\Butler\butler.exe";
-    private const string ITCH_TARGET = "d-demetori/ld-58-collector:webgl";
+    private const string ITCH_TARGET = "d-demetori/claw-collect:webgl";
 
     [MenuItem("Demetori/Build/Publish to Itch.io Async with Logs")]
     public static void BuildAndPublishAsync()

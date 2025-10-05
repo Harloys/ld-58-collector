@@ -25,7 +25,12 @@ public class ClawMachine : MonoBehaviour
     public SplineContainer SplineContainer3;
     public AudioSource Source; 
     public AudioSource Click; 
-    public AudioSource ClickOut; 
+    public AudioSource ClickOut;
+
+
+    public MeshRenderer Renderer;
+    public Material Player;
+    public Material AIMat;
 
     public Animator AnimatorClaw;
     
@@ -84,6 +89,8 @@ public class ClawMachine : MonoBehaviour
     
     private void FixedUpdate()
     {
+        Renderer.material = AI ? AIMat : Player;
+        
         Vector3 currentPos = ClawRig.localPosition;
         currentVel = (currentPos - prevPos) / Time.fixedDeltaTime;
         prevPos = currentPos;
@@ -293,9 +300,11 @@ public class ClawMachine : MonoBehaviour
 
         while (Mathf.Abs(PosX - ReleasePoint.x) > 0.001f || Mathf.Abs(PosZ - ReleasePoint.y) > 0.001f)
         {
-            PosX = Mathf.MoveTowards(PosX, ReleasePoint.x, Time.deltaTime * MoveToReleaseSpeed + (EffectsController.Instance.SpeedMult * SpeedMultiplyEffect));
-            PosZ = Mathf.MoveTowards(PosZ, ReleasePoint.y, Time.deltaTime * MoveToReleaseSpeed + (EffectsController.Instance.SpeedMult * SpeedMultiplyEffect));
-
+            //PosX = Mathf.MoveTowards(PosX, ReleasePoint.x, Time.deltaTime * MoveToReleaseSpeed + (EffectsController.Instance.SpeedMult * SpeedMultiplyEffect));
+            //PosZ = Mathf.MoveTowards(PosZ, ReleasePoint.y, Time.deltaTime * MoveToReleaseSpeed + (EffectsController.Instance.SpeedMult * SpeedMultiplyEffect));
+            PosX = Mathf.MoveTowards(PosX, ReleasePoint.x, Time.deltaTime * MoveToReleaseSpeed);
+            PosZ = Mathf.MoveTowards(PosZ, ReleasePoint.y, Time.deltaTime * MoveToReleaseSpeed);
+            
             PosX = Mathf.Clamp01(PosX);
             PosZ = Mathf.Clamp01(PosZ);
 

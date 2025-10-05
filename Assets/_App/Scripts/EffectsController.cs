@@ -8,6 +8,8 @@ public class EffectsController : MonoBehaviour
     public int ClawsCount = 1;
     public float SpeedMult = 0f;
 
+    public int Play = 0;
+    
     public static EffectsController Instance;
 
     public float effectDuration = 60f;
@@ -73,7 +75,7 @@ public class EffectsController : MonoBehaviour
         }
         else if (effect == EffectIncreaseClaws)
         {
-            if (ClawsCount < 3)
+            if (ClawsCount < 3 + Play)
             {
                 ClawsCount += 1;
                 active.AddedValue = 1;
@@ -83,7 +85,7 @@ public class EffectsController : MonoBehaviour
         }
         else if (effect == EffectIncreaseSpeed)
         {
-            float amount = 0.025f;
+            float amount = 0.025f + (0.02f * Play);
             SpeedMult += amount;
             active.AddedValue = amount;
         }
@@ -94,7 +96,7 @@ public class EffectsController : MonoBehaviour
 
     private IEnumerator RemoveEffectAfterTime(ActiveEffect effect)
     {
-        yield return new WaitForSeconds(effectDuration);
+        yield return new WaitForSeconds(effectDuration + (8f * Play));
 
         if (effect.Apply == EffectIncreaseBallScale)
         {
